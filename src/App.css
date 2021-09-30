@@ -1,0 +1,55 @@
+body {
+  background-color: #fafafa;
+  color: #fafafa;
+}
+
+div {
+}
+
+.App {
+  background: rgb(0, 119, 192);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 119, 192, 1) 0%,
+    rgba(29, 36, 43, 1) 100%
+  );
+  margin: auto;
+  height: 600px;
+  width: 400px;
+  padding: 0px;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.Icon {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.Info {
+  margin: 20px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.Form {
+  margin-top: 20px;
+  color: #1d242b;
+}
+
+.search {
+  width: 336px;
+  border: none;
+  background-color: #fafafa;
+}
+
+.SearchButton {
+  border: none;
+  color: rgba(29, 36, 43);
+}
+
+li {
+  list-style: none;
+  text-align: left;
+  font-size: 16px;
+}
