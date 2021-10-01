@@ -7,6 +7,7 @@ body {
   margin: auto;
   margin-top: 30px;
   color: #1d242b;
+  text-align: center;
 }
 
 .App {
@@ -26,13 +27,11 @@ body {
 }
 
 .Icon {
-  text-align: center;
-  padding-top: 20px;
+  padding-top: 50px;
 }
 
 .Info {
   margin: 20px;
-  text-align: center;
   font-size: 30px;
 }
 

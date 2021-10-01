@@ -1,6 +1,5 @@
 
 export default function FormatDate(props){
-console.log(props.date)
        let dayList = 
         [
         `Sunday`,
