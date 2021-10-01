@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 import "./App.css";
 import WeatherIcon from "./WeatherIcon";
-import WeatherData from "./WeatherAPI";
+import WeatherData from "./WeatherApi";
 import Form from "./Form";
 
 function App() {

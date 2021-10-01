@@ -21,7 +21,4 @@ function WeatherData(props) {
     return `Loading ...`;
   }
 }
-
-
-
     export default WeatherData;
