@@ -2,11 +2,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
 import "./App.css";
 import WeatherIcon from "./WeatherIcon";
-
+import WeatherData from "./WeatherAPI";
+import Form from "./Form";
 
 function App() {
   return (
-    <div className="Body">
+     <div className="Body">
     <div className="App">
 
         <div className="Icon">
@@ -14,17 +15,10 @@ function App() {
         </div>
 
         <div className="Info">
-          It is 25℃
+          <WeatherData city="Tokyo"/>
           Tokyo, Japan
         </div>
-
-        <div className="Form">
-          <form>
-            <input type="text" placeholder="enter city and press enter"  className="search"/>
-            <input type="submit" value="Search" className="SearchButton"/>
-         </form>
-        </div>
-
+        <Form/>
 
         <div className="Info"> 
          <ul>
@@ -37,7 +31,7 @@ function App() {
         </div>
     
     </div>
-
+   
     <div>
         Coded by Nike
     </div>
