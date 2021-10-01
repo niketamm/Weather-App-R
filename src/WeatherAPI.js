@@ -15,7 +15,7 @@ function WeatherData(props) {
 
   if (data) {
     return ( 
-        `${Math.round(data)} °C`
+        `${Math.round(data)} °C `
     );
   } else {
     return `Loading ...`;
