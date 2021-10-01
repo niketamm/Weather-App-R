@@ -1,6 +1,7 @@
 import {useState} from "react";
 import axios from "axios";
 import Form from "./Form";
+import FormatDate from "./FormatDate";
 
 
 export default function WeatherData(props) {
@@ -15,13 +16,11 @@ export default function WeatherData(props) {
       tempMin: response.data.main.temp_min,
       tempMax: response.data.main.temp_max,
       wind: response.data.wind.speed,
+      datatime: new Date(response.data.dt*1000),
       city: response.data.name
-      
-
     });
 
-    setReady(true);
-  }
+    setReady(true);}
 
   if (ready) {
     return (  
@@ -34,7 +33,7 @@ export default function WeatherData(props) {
          <Form/>
         <div className="Info">
         <ul>
-          <li>Last Updated</li>
+          <li>Last Updated <FormatDate date={data.datatime}/> </li>
           <li className="text-capitalize">{data.sky}</li>
           <li>Humidity: {data.humidity}%</li>
           <li>Wind:  {Math.round(data.wind)} km/h</li>
