@@ -1,16 +1,16 @@
 import {useState} from "react";
 import axios from "axios";
-import Form from "./Form";
 import FormatDate from "./FormatDate";
 
 
 export default function WeatherData(props) {
-  const [ready, setReady]=useState(false);
-  const [data, setData] = useState({});
+  const [data, setData] = useState({ ready: false});
+  const [city, setCity]= useState(props.defaultCity);
 
   function showTemperature(response) {
-      console.log(response.data)
-    setData({temp: response.data.main.temp,
+    setData({
+      ready: true,
+        temp: response.data.main.temp,
       humidity: response.data.main.humidity,
       sky: response.data.weather[0].description,
       tempMin: response.data.main.temp_min,
@@ -18,22 +18,48 @@ export default function WeatherData(props) {
       wind: response.data.wind.speed,
       datatime: new Date(response.data.dt*1000),
       city: response.data.name
-    });
+    })
+    ;}
 
-    setReady(true);}
+function citySubmit(event) {
+    setCity(event.target.value);
+  }
 
-  if (ready) {
+function formInput(event) {
+    event.preventDefault();
+    api();
+}
+
+function api() {const apiKey = `8e829c86fcad97d52771623e3da2a60f`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature)};
+
+let form= (
+            <form className="Form" onSubmit={formInput}>
+            <input
+              type="text"
+              placeholder="enter city and press enter"
+              className="search"
+              onChange={citySubmit}/>
+            <input 
+                type="submit" 
+                value="Search" 
+                className="SearchButton" />
+          </form>
+          );
+
+  if (data.ready) {
     return (  
         <div>
         <div className="Info">
         {Math.round(data.temp)} °C 
         <br/>
         {data.city}
+        <ul><li>Last Updated <FormatDate date={data.datatime}/></li></ul>
         </div>
-         <Form/>
+
         <div className="Info">
         <ul>
-          <li>Last Updated <FormatDate date={data.datatime}/> </li>
           <li className="text-capitalize">{data.sky}</li>
           <li>Humidity: {data.humidity}%</li>
           <li>Wind:  {Math.round(data.wind)} km/h</li>
@@ -41,12 +67,13 @@ export default function WeatherData(props) {
           <li>Highest: {Math.round(data.tempMax)} °C</li>
         </ul> 
         </div>
+        {form}
         </div>
     );
   } else {
-  const apiKey = `8e829c86fcad97d52771623e3da2a60f`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
-    return `Loading ...`;
+   api();
+    return `Loading ...`
+   
+;
   }
 }
