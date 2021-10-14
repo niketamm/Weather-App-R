@@ -15,16 +15,14 @@ export default function WeatherForecast(props){
 if (loaded){
      return (<div className="row">
             {forecast.map(function(dailyForecast, index){
-                if (index >3) return (
+                if (index >3) {return (
                 <div className="col" key={index}>
                 <FormatForecastDate data={dailyForecast}/>
                 </div>  
                 )
-
+                }
             })}
-
-                </div>   
-);
+                </div>   );
 }else{let apiKey=`8e829c86fcad97d52771623e3da2a60f`;
     let latitude=(props.coordinates.lat);
     let longitude=(props.coordinates.lon);
