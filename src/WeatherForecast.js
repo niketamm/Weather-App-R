@@ -18,14 +18,18 @@ export default function WeatherForecast(props){
 
 if (loaded){
      return (<div className="row">
-                {forecast.map(function (dailyForecast, index) {
+                {forecast.map(function 
+                (dailyForecast, index) {
                 if (index >3) {
                     return (
-                    <div className="col" key={index}>
-                        <FormatForecastDate data={dailyForecast} />
+                    <div 
+                    className="col" key={index}>
+                        <FormatForecastDate 
+                        data={dailyForecast} />
                     </div>  
                     );
                 }
+                return null;
             })}
                 </div>   
                 );
