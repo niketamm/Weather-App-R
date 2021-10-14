@@ -57,28 +57,34 @@ let form= (
 
   if (data.ready) {
     return (  
-        <div>
-        <div className="Icon">
-          <WeatherIcon code={data.iconCode} size={100}/>
-        </div>
+    <div className="row">
+      <div className="col">
         <div className="Info">
-    
+        <div className="Icon">
+          <WeatherIcon code={data.iconCode} size={100}/></div>
         {Math.round(data.temp)} °C 
         <br/>
         {data.city}
-        <ul><li>Last Updated <FormatDate date={data.datatime}/></li></ul>
+        
         </div>
-
-        <div className="Info">
-        <ul>
+        </div>
+    
+        <div className="col-8">         
+        <ul className="extraInfo">
           <li className="text-capitalize">{data.sky}</li>
           <li>Humidity: {data.humidity}%</li>
           <li>Wind:  {Math.round(data.wind)} km/h</li>
           <li>Lowest: {Math.round(data.tempMin)} °C</li>
           <li>Highest: {Math.round(data.tempMax)} °C</li>
         </ul> 
+     Last Updated <FormatDate date={data.datatime}/>
+    
         </div>
+
+        <div>
         {form}
+         </div>
+        
         <div className="weatherForecast">
         <WeatherForecast coordinates={data.coordinates}/>
         </div>

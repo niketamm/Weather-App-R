@@ -16,11 +16,10 @@ export default function FormatForecastDate(props){
 
 function weekday(){
     let date= new Date(props.data.dt*1000)
-
+    
 
     let dayList = 
-        [
-        `Sun`,
+        [`Sun`,
         `Mon`,
         `Tue`,
         `Wed`,

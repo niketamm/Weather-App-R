@@ -19,20 +19,27 @@ body {
     rgba(29, 36, 43, 1) 100%
   );
   margin: auto;
-  height: 600px;
-  width: 400px;
+  height: auto;
+  width: 500px;
   padding: 0px;
-  border-radius: 50px;
+  border-radius: 30px;
+  padding: 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .Icon {
-  padding-top: 50px;
+  padding-bottom: 0px;
 }
 
 .Info {
-  margin: 20px;
+  padding-left: 10px;
   font-size: 30px;
+}
+
+.extraInfo {
+  margin-top: 30px;
+  font-size: 15px;
+  text-align: left;
 }
 
 .Form {
@@ -42,7 +49,7 @@ body {
 }
 
 .search {
-  width: 340px;
+  width: 380px;
   border: none;
   background-color: #fafafa;
 }
@@ -54,9 +61,17 @@ body {
 
 li {
   list-style: none;
-  font-size: 13px;
 }
 
 .forecastTemp-min {
   opacity: 0.4;
+}
+
+.footer {
+  font-size: 9px;
+}
+
+.update {
+  font-size: 13px;
+  text-align: left;
 }
