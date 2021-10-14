@@ -7,11 +7,11 @@ function App() {
   return (
      <div className="Body">
     <div className="App">
-      
+
         <div>
-          <WeatherData defaultCity="Tokyo"/>
+          <WeatherData defaultCity="Tokyo" />
         </div>
-    
+        
     </div>
    
     <div>

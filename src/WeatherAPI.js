@@ -1,7 +1,10 @@
 import {useState} from "react";
+import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
 import FormatDate from "./FormatDate";
 import WeatherIcon from "./WeatherIcon";
+import WeatherForecast from "./WeatherForecast";
+
 
 
 export default function WeatherData(props) {
@@ -9,7 +12,6 @@ export default function WeatherData(props) {
   const [city, setCity]= useState(props.defaultCity);
 
   function showTemperature(response) {
-    console.log(response.data);
     setData({
       ready: true,
       temp: response.data.main.temp,
@@ -37,8 +39,6 @@ function api() {const apiKey = `8e829c86fcad97d52771623e3da2a60f`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature)};
 
-
-
 let form= (
             <form className="Form" onSubmit={formInput}>
             <input
@@ -57,9 +57,10 @@ let form= (
     return (  
         <div>
         <div className="Icon">
-          <WeatherIcon code={data.iconCode}/>
+          <WeatherIcon code={data.iconCode} size={100}/>
         </div>
         <div className="Info">
+    
         {Math.round(data.temp)} °C 
         <br/>
         {data.city}
@@ -76,6 +77,12 @@ let form= (
         </ul> 
         </div>
         {form}
+        <div className="weatherForecast">
+          <div　className="row">
+        <WeatherForecast />
+
+        </div>
+        </div>
         </div>
     );
   } else {
