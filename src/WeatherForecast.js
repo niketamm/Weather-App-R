@@ -16,7 +16,7 @@ if (loaded){
      return (<div className="row">
             {forecast.map(function(dailyForecast, index){
                 if (index >3) return (
-                <div className="col">
+                <div className="col" key={index}>
                 <FormatForecastDate data={dailyForecast}/>
                 </div>  
                 )
